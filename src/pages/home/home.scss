@@ -1,0 +1,16 @@
+@import '../../styles/colors.scss';
+
+.home {
+	background-size: cover;
+	&.day {
+		background-image: url('../../assets/heaven.jpg');
+	}
+	&.night {
+		background-image: url('https://lookw.net/25/2536/1669117431-1009-www.lookw.net.jpg');
+	}
+}
+
+.bg-transparent {
+	background-color: #2e335a;
+	backdrop-filter: blur(20px);
+}
