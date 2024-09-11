@@ -39,7 +39,7 @@ function Home() {
 			<HomeHeader forecast={forecast} />
 			{!isDay && (
 				<img
-					src='../../assets/House.png'
+					src='/House.png'
 					alt='weather'
 					className='fixed w-full object-fit z-10 top-1/2 -translate-y-[calc(50vw-40px)] left-1/2 -translate-x-1/2 sm:w-1/2 sm:-translate-y-[calc(15vh)]'
 				/>

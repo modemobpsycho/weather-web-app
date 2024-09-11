@@ -1,0 +1,13 @@
+.day-header {
+	color: white;
+	.container-blur {
+		width: 100%;
+		backdrop-filter: blur(8px);
+		background-color: rgba(0, 0, 0, 0.05);
+		padding: 10px;
+	}
+}
+
+.night-header {
+	color: white;
+}

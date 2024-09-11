@@ -1,6 +1,8 @@
 import { useActions } from '@/hooks/useActions'
+import { useWeatherState } from '@/hooks/useStoreState'
 
 export function CurrentLocation() {
+	const { isDay } = useWeatherState()
 	const { setCity } = useActions()
 
 	const handleLocation = () => {
@@ -22,7 +24,11 @@ export function CurrentLocation() {
 	return (
 		<button
 			type='button'
-			className='text-white font-medium flex items-center justify-center w-[50%] text-lg rounded-lg px-4 py-2.5 me-2 mb-2 dark:bg-gradient-to-r from-[#5936B4] via-[#5936B4] to-[#362A84] hover:bg-gradient-to-br'
+			className={`text-white font-medium flex items-center justify-center w-[50%] text-lg rounded-lg px-4 py-2.5 me-2 mb-2 dark:bg-gradient-to-r hover:bg-gradient-to-br ${
+				isDay
+					? 'from-[#517ef1] to-[#d185f1]'
+					: 'from-[#5936B4] via-[#5936B4] to-[#362A84]'
+			}`}
 			onClick={handleLocation}
 		>
 			<svg
@@ -37,7 +43,7 @@ export function CurrentLocation() {
 					fill='white'
 				/>
 			</svg>
-			<span className='ml-2'>Where am I?</span>
+			<span className='ml-2'>Where am I</span>
 		</button>
 	)
 }

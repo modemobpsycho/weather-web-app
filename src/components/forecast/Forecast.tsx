@@ -28,7 +28,7 @@ export function Forecast({ forecast }: { forecast: IForecastData }) {
 						<img
 							src={
 								hour.condition.icon.includes('night')
-									? '../../assets/night.png'
+									? '/night.png'
 									: hour.condition.icon
 							}
 							alt='weather'
