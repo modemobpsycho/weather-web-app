@@ -14,12 +14,28 @@
 	margin-right: 10px;
 	border-radius: 40px;
 	display: flex;
-	background-image: linear-gradient(to right, #2e335a, #1c1b33);
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px;
-	border: 2px solid #48319d;
+
+	&.day {
+		background-image: linear-gradient(180deg, #517ef1 0%, #d185f1 100%);
+		border: 1px solid #8065df;
+	}
+
+	&.night {
+		background-image: linear-gradient(to right, #2e335a, #1c1b33);
+		border: 1px solid #48319d;
+	}
+
+	&.now-hour-day {
+		background-image: linear-gradient(180deg, #466dce 0%, #a252c4 100%);
+	}
+
+	&.now-hour-night {
+		background-image: linear-gradient(to right, #5936b4 0%, #362a84 100%);
+	}
 }
 
 .time {
@@ -29,8 +45,4 @@
 
 .temperature {
 	font-size: 24px;
-}
-
-.now-hour {
-	background-image: linear-gradient(180deg, #5936b4 0%, #362a84 100%);
 }

@@ -10,18 +10,16 @@ export function ForecastButtons() {
 			<div className='flex flex-col w-full z-20 px-4'>
 				<div className='flex gap-3'>
 					<button
-						className={`focus:outline-none relative transition duration-300 ease-in-out ${
-							forecastType === 'Hourly'
-								? 'text-[#ffffff] text-lg'
-								: 'text-white'
+						className={`relative transition-all duration-150 ease-in-out ${
+							forecastType === 'Hourly' ? 'text-lg' : ''
 						}`}
 						onClick={() => setForecastType('Hourly')}
 					>
 						Hourly Forecast
 					</button>
 					<button
-						className={`ml-auto focus:outline-none relative transition duration-300 ease-in-out ${
-							forecastType === 'Daily' ? 'text-[#ffffff] text-lg' : 'text-white'
+						className={`ml-auto relative transition-all duration-150 ease-in-out ${
+							forecastType === 'Daily' ? 'text-lg' : ''
 						}`}
 						onClick={() => setForecastType('Daily')}
 					>

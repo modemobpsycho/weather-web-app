@@ -21,6 +21,14 @@ export interface IForecastHeader {
 export interface IForecastData {
 	forecast: {
 		forecastday: {
+			date: string
+			day: {
+				maxtemp_c: number
+				mintemp_c: number
+				condition: {
+					icon: string
+				}
+			}
 			hour: HourData[]
 		}[]
 	}
