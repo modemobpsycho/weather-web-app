@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+
+.day-info {
+	background-size: cover;
+	&.day {
+		background-image: url('/heaven.jpg');
+	}
+	&.night {
+		background-image: url('https://lookw.net/25/2536/1669117431-1009-www.lookw.net.jpg');
+	}
+}
+
+.bg-transparent {
+	background-color: #2e335a;
+	backdrop-filter: blur(20px);
+}
+
+.info-card {
+	flex: 0 0 auto;
+	width: 150px;
+	height: 150px;
+	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+
+	&.day {
+		background-image: linear-gradient(180deg, #517ef1 0%, #d185f1 100%);
+		border: 1px solid #8065df;
+	}
+
+	&.night {
+		background-image: linear-gradient(to right, #2e335a, #1c1b33);
+		border: 1px solid #48319d;
+	}
+}

@@ -21,7 +21,32 @@ export const weatherApi = baseApi.injectEndpoints({
 				},
 			}),
 		}),
+		getDayInfo: builder.query({
+			query: ({ city, dt }: { city: string; dt: string }) => ({
+				url: '/forecast.json',
+				method: 'GET',
+				params: {
+					q: city,
+					days: 1,
+					dt: dt,
+				},
+			}),
+		}),
+		searchCity: builder.query({
+			query: (city: string) => ({
+				url: '/search.json',
+				method: 'GET',
+				params: {
+					q: city,
+				},
+			}),
+		}),
 	}),
 })
 
-export const { useGetCurrentWeatherQuery, useGetForecastQuery } = weatherApi
+export const {
+	useGetCurrentWeatherQuery,
+	useGetForecastQuery,
+	useSearchCityQuery,
+	useGetDayInfoQuery,
+} = weatherApi
