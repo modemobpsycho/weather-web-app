@@ -1,9 +1,11 @@
 import { IForecastData } from '@/types/forecast.interface'
 import { useWeatherState } from '@/hooks/useStoreState'
+import { useNavigate } from 'react-router-dom'
 
 import './forecast.scss'
 
 export function Forecast({ forecast }: { forecast: IForecastData }) {
+	const navigate = useNavigate()
 	const currentHour = new Date().getHours()
 	const { isDay, forecastType } = useWeatherState()
 
@@ -41,8 +43,11 @@ export function Forecast({ forecast }: { forecast: IForecastData }) {
 				<>
 					{forecast.forecast.forecastday.map((day, index) => (
 						<div
-							key={index}
+							key={forecast.forecast.forecastday[index].date}
 							className={`weather-card ${isDay ? 'day' : 'night'}`}
+							onClick={() =>
+								navigate(`/day/${forecast.forecast.forecastday[index].date}`)
+							}
 						>
 							<p className='time'>
 								{new Date(day.date).toLocaleDateString().slice(0, 5)}

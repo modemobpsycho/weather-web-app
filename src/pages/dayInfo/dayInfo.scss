@@ -16,15 +16,11 @@
 }
 
 .info-card {
-	flex: 0 0 auto;
-	width: 150px;
-	height: 150px;
-	border-radius: 40px;
 	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
+	border-radius: 30px;
 	padding: 10px;
+	margin: 10px;
 
 	&.day {
 		background-image: linear-gradient(180deg, #517ef1 0%, #d185f1 100%);
@@ -35,4 +31,12 @@
 		background-image: linear-gradient(to right, #2e335a, #1c1b33);
 		border: 1px solid #48319d;
 	}
+}
+
+.option {
+	font-size: 16px;
+}
+
+.characteristic {
+	font-size: 14px;
 }

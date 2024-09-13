@@ -32,6 +32,15 @@ export interface IForecastData {
 			hour: HourData[]
 		}[]
 	}
+	location: {
+		name: string
+	}
+	current: {
+		temp_c: number
+		condition: {
+			text: string
+		}
+	}
 }
 
 interface HourData {
