@@ -8,7 +8,7 @@ export interface weatherState {
 }
 
 const initialState: weatherState = {
-	isDay: true,
+	isDay: new Date().getHours() < 20 && new Date().getHours() > 8,
 	city: 'Minsk',
 	forecastType: 'Hourly',
 	favoriteCities: JSON.parse(localStorage.getItem('favoriteCities') || '[]'),

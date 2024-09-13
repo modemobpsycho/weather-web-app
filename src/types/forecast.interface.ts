@@ -27,6 +27,7 @@ export interface IForecastData {
 				mintemp_c: number
 				condition: {
 					icon: string
+					text: string
 				}
 			}
 			hour: HourData[]
