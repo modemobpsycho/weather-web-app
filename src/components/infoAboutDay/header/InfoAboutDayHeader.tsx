@@ -1,40 +1,42 @@
 import { IForecastData } from '@/types/forecast.interface'
 import { useWeatherState } from '@/hooks/useStoreState'
+import { getDayOfWeek } from '@/helpers/helpers'
 
-import '../forecast/forecast.scss'
-
-export function InfoAboutDay({ forecast }: { forecast: IForecastData }) {
+export function InfoAboutDayHeader({ dayInfo }: { dayInfo: IForecastData }) {
 	const { isDay } = useWeatherState()
 	return (
-		<>
+		<div className='flex flex-col w-full mt-10'>
 			<div
 				className={`flex flex-col items-center py-4 w-full z-20 ${
 					isDay ? 'day-header' : 'night-header'
 				}`}
 			>
 				<div className='flex flex-col items-center container-blur gap-2'>
-					<p className='text-4xl font-light'>{forecast.location.name}</p>
+					<p className='text-4xl font-light'>{dayInfo.location.name}</p>
 
 					<p className='text-7xl font-extralight'>
-						{new Date(forecast.forecast.forecastday[0].date)
+						{new Date(dayInfo.forecast.forecastday[0].date)
 							.toLocaleDateString()
 							.slice(0, 5)}
 					</p>
+					<p className='text-xl'>
+						{getDayOfWeek(dayInfo.forecast.forecastday[0].date)}
+					</p>
+					<p className={`${isDay ? 'day' : 'night'} text-md`}>
+						{dayInfo.forecast.forecastday[0].day.condition.text}
+					</p>
 					<div className='flex flex-col items-center'>
 						<img
-							src={forecast.forecast.forecastday[0].day.condition.icon}
+							src={dayInfo.forecast.forecastday[0].day.condition.icon}
 							alt='weather'
-							className='w-10 mb-2'
+							className='w-12'
 						/>
-						<p className={`${isDay ? 'day' : 'night'}`}>
-							{forecast.forecast.forecastday[0].day.condition.text}
-						</p>
 					</div>
 				</div>
 			</div>
-			<div className='weather-scroll-container'>
-				{forecast &&
-					forecast.forecast.forecastday[0].hour.map((hour, index) => (
+			<div className='weather-scroll-container mx-2'>
+				{dayInfo &&
+					dayInfo.forecast.forecastday[0].hour.map((hour, index) => (
 						<div
 							key={index}
 							className={`weather-card ${isDay ? 'day' : 'night'}`}
@@ -55,6 +57,6 @@ export function InfoAboutDay({ forecast }: { forecast: IForecastData }) {
 						</div>
 					))}
 			</div>
-		</>
+		</div>
 	)
 }

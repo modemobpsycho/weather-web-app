@@ -13,7 +13,12 @@ export interface IForecastHeader {
 			day: {
 				maxtemp_c: number
 				mintemp_c: number
+				condition: {
+					icon: string
+					text: string
+				}
 			}
+			date: string
 		}[]
 	}
 }
@@ -29,6 +34,12 @@ export interface IForecastData {
 					icon: string
 					text: string
 				}
+				avgtemp_c: number
+				maxwind_mph: number
+				avghumidity: number
+				daily_chance_of_rain: number
+				daily_chance_of_snow: number
+				uv: number
 			}
 			hour: HourData[]
 		}[]
