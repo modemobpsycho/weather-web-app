@@ -1,5 +1,5 @@
-import { IForecastData } from '@/types/forecast.interface'
 import { useWeatherState } from '@/hooks/useStoreState'
+import { IForecastData } from '@/types/forecast.interface'
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat'
 import AirIcon from '@mui/icons-material/Air'
 import AcUnitIcon from '@mui/icons-material/AcUnit'
@@ -10,7 +10,7 @@ import FlareIcon from '@mui/icons-material/Flare'
 export function InfoAboutDayFooter({ dayInfo }: { dayInfo: IForecastData }) {
 	const { isDay } = useWeatherState()
 	return (
-		<div className='bg-transparent rounded-2xl z-20 mx-2 p-3'>
+		<div className='bg-transparent rounded-2xl z-20 mx-2 p-3 overflow-auto'>
 			<div className='grid grid-cols-2 mb-2 gap-2'>
 				<div className={`info-card ${isDay ? 'day' : 'night'}`}>
 					<DeviceThermostatIcon sx={{ fontSize: 28 }} />

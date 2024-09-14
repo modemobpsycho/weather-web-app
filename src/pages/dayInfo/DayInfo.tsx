@@ -1,13 +1,12 @@
-import { useWeatherState } from '@/hooks/useStoreState'
+import { InfoAboutDayHeader } from '@/components/infoAboutDay/header/InfoAboutDayHeader'
+import { InfoAboutDayFooter } from '@/components/infoAboutDay/footer/InfoAboutDayFooter'
 import { BackButton } from './backButton/BackButton'
+import { useWeatherState } from '@/hooks/useStoreState'
 import { useGetDayInfoQuery } from '@/stores/api/weather.api'
 import { useParams } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 
 import './dayInfo.scss'
-
-import { InfoAboutDayFooter } from '@/components/infoAboutDay/footer/InfoAboutDayFooter'
-import { InfoAboutDayHeader } from '@/components/infoAboutDay/header/InfoAboutDayHeader'
 
 function DayInfo() {
 	const { day } = useParams()
@@ -19,8 +18,6 @@ function DayInfo() {
 		},
 		{ skip: !day }
 	)
-
-	console.log(dayInfo)
 
 	return (
 		<div

@@ -2,6 +2,8 @@
 
 .home {
 	background-size: cover;
+	background-repeat: repeat;
+
 	&.day {
 		background-image: url('/heaven.jpg');
 	}

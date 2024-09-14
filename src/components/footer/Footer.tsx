@@ -1,9 +1,9 @@
-import { CurrentLocation } from './CurrentLocation'
-import { Favorites } from './Favorites'
+import { CurrentLocation } from './components/CurrentLocation'
+import { Favorites } from './components/Favorites'
 
 export function Footer() {
 	return (
-		<div className='w-full flex justify-between my-3 '>
+		<div className='w-full flex mt-3'>
 			<CurrentLocation />
 			<Favorites />
 		</div>

@@ -3,13 +3,13 @@ import { Forecast } from '@/components/forecast/Forecast'
 import { SearchLocation } from '@/components/searchLocation/SearchLocation'
 import { ForecastButtons } from '@/components/forecastButtons/ForecastButtons'
 import { Footer } from '@/components/footer/Footer'
-import { useGetForecastQuery } from '@/stores/api/weather.api'
 import { useWeatherState } from '@/hooks/useStoreState'
 import { useActions } from '@/hooks/useActions'
+import { useGetForecastQuery } from '@/stores/api/weather.api'
 import { useEffect } from 'react'
+import { CircularProgress } from '@mui/material'
 
 import './home.scss'
-import { AddFavoriteButton } from '@/components/addFavoriteButton/AddFavoriteButton'
 
 function Home() {
 	const { isDay, city, forecastType } = useWeatherState()
@@ -27,7 +27,7 @@ function Home() {
 		if (forecast) {
 			setIsDay(forecast.current.is_day)
 		}
-	}, [isForecastLoading])
+	}, [isForecastLoading, forecast])
 
 	if (!forecast) {
 		return <div>Loading...</div>
@@ -35,20 +35,24 @@ function Home() {
 
 	return (
 		<div className={`home flex flex-col h-screen ${isDay ? 'day' : 'night'}`}>
-			<AddFavoriteButton currentCity={city} />
+			{isForecastLoading && (
+				<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+					<CircularProgress color='inherit' size={100} sx={{ zIndex: 20 }} />
+				</div>
+			)}
+			<SearchLocation />
 			<HomeHeader forecast={forecast} />
 			{!isDay && (
 				<img
 					src='/House.png'
 					alt='weather'
-					className='fixed w-full object-fit z-10 top-1/2 -translate-y-[calc(50vw-40px)] left-1/2 -translate-x-1/2 sm:w-1/2 sm:-translate-y-[calc(15vh)]'
+					className='fixed w-full object-fit z-10 top-1/2 -translate-y-[calc(50vw-130px)] left-1/2 -translate-x-1/2 sm:w-1/2 sm:-translate-y-[calc(15vh)]'
 				/>
 			)}
-			<div className='flex flex-col p-4 w-full h-[calc(100%-100px)] rounded-2xl z-20 bg-transparent'>
+			<div className='flex flex-col p-4 w-full rounded-2xl z-20 bg-transparent'>
 				<ForecastButtons />
-				<Forecast forecast={forecast} />
+				<Forecast forecast={forecast} isForecastLoading={isForecastLoading} />
 				<Footer />
-				<SearchLocation />
 			</div>
 		</div>
 	)

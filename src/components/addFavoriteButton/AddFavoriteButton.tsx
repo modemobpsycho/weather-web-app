@@ -25,9 +25,9 @@ export const AddFavoriteButton: React.FC<AddFavoriteButtonProps> = ({
 	return (
 		<button
 			type='button'
-			className={`fixed top-4 right-4 text-white font-medium rounded-lg px-2 py-1.5 dark:bg-gradient-to-r ${
+			className={`rounded-lg ml-4 px-2 py-2 z-30 dark:bg-gradient-to-r ${
 				isDay
-					? 'from-[#517ef1] to-[#d185f1]'
+					? 'from-[#517ef1] to-[#48bcff]'
 					: 'from-[#5936B4] via-[#5936B4] to-[#362A84]'
 			}`}
 			onClick={handleFavoriteToggle}

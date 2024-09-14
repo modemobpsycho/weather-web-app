@@ -1,6 +1,6 @@
-import { IForecastData } from '@/types/forecast.interface'
 import { useWeatherState } from '@/hooks/useStoreState'
 import { getDayOfWeek } from '@/helpers/helpers'
+import { IForecastData } from '@/types/forecast.interface'
 
 export function InfoAboutDayHeader({ dayInfo }: { dayInfo: IForecastData }) {
 	const { isDay } = useWeatherState()

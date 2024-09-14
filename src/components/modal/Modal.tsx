@@ -28,7 +28,9 @@ export function Modal({
 						/>
 					</svg>
 				</button>
-				<div className='flex flex-col items-center'>{children}</div>
+				<div className='flex flex-col items-center overflow-y-scroll h-[calc(50vh-230px)]'>
+					{children}
+				</div>
 			</div>
 		</div>
 	)
